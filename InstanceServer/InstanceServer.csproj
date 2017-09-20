@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8C96969-BC3A-4EE8-83BB-C543F676914C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InstanceServer</RootNamespace>
+    <AssemblyName>InstanceServer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\InstanceServer\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExitGames.Logging.Log4Net">
+      <HintPath>..\..\Photon-OnPremise-Server-SDK_v4-0-29-11263\lib\ExitGames.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="ExitGamesLibs">
+      <HintPath>..\..\Photon-OnPremise-Server-SDK_v4-0-29-11263\lib\ExitGamesLibs.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\Photon-OnPremise-Server-SDK_v4-0-29-11263\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon.SocketServer">
+      <HintPath>..\..\Photon-OnPremise-Server-SDK_v4-0-29-11263\lib\Photon.SocketServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonHostRuntimeInterfaces">
+      <HintPath>..\..\Photon-OnPremise-Server-SDK_v4-0-29-11263\lib\PhotonHostRuntimeInterfaces.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PlayFabServerSDK">
+      <HintPath>libs\PlayFabServerSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Combat\Behaviours\AbilityCycleBehaviour.cs" />
+    <Compile Include="Core\Combat\Behaviours\CombatBehaviourBase.cs" />
+    <Compile Include="Core\Combat\Behaviours\PlayerCombatBehaviourBase.cs" />
+    <Compile Include="Core\Combat\Behaviours\ManualInputBehaviour.cs" />
+    <Compile Include="Core\Commands\MapContextDependenciesCMD.cs" />
+    <Compile Include="Core\Net\Events\GameCompletedEvent.cs" />
+    <Compile Include="Core\Net\Events\PlayersJoinedZoneEvent.cs" />
+    <Compile Include="Core\Net\Events\ZoneCompletedEvent.cs" />
+    <Compile Include="Core\Net\IServiceMappings.cs" />
+    <Compile Include="Core\Net\Services\Inventory\CatalogServiceBase.cs" />
+    <Compile Include="Core\Net\Services\Inventory\DropTableServiceBase.cs" />
+    <Compile Include="Core\Net\Services\Inventory\InventoryServiceBase.cs" />
+    <Compile Include="Core\Net\Services\Player\PlayerServiceBase.cs" />
+    <Compile Include="Core\Net\Services\Session\SessionServiceBase.cs" />
+    <Compile Include="Core\Room\Game\Commands\GrantZoneCompletionRewardsCMD.cs" />
+    <Compile Include="Core\Room\Game\Commands\SendGameCompletedEventsSCMD.cs" />
+    <Compile Include="Core\Room\Game\Commands\SendPlayersJoinedZoneSCMD.cs" />
+    <Compile Include="Core\Room\Game\Controllers\CoOpInstanceGame\CoOpInstanceCombatController.cs" />
+    <Compile Include="Core\LockStep\TurnDispatcher.cs" />
+    <Compile Include="Core\Net\OperationRequests\PlayerCombatActionRequest.cs" />
+    <Compile Include="Core\Room\Game\Commands\SendCombatTurnEventsSCMD.cs" />
+    <Compile Include="Core\Commands\CreateClientPeerConnectionSCMD.cs" />
+    <Compile Include="Core\Room\Game\Controllers\CoOpInstanceGame\ZoneController.cs" />
+    <Compile Include="Core\Room\Game\WorldBuilders\Commands\DetermineNPCDropTableSCMD.cs" />
+    <Compile Include="Core\Room\Game\WorldBuilders\IWorldBuilder.cs" />
+    <Compile Include="Core\Room\Game\WorldBuilders\PlayerBasedWorldBuilder.cs" />
+    <Compile Include="PlayFabNetExtensions\Net\PlayFabServiceMappings.cs" />
+    <Compile Include="PlayFabNetExtensions\Net\Services\Inventory\PlayFabDropTableService.cs" />
+    <Compile Include="PlayFabNetExtensions\Net\Services\Inventory\PlayFabInventoryService.cs" />
+    <Compile Include="PlayFabNetExtensions\Net\Services\Player\PlayFabPlayerService.cs" />
+    <Compile Include="PlayFabNetExtensions\Net\Services\PlayFabSetup.cs" />
+    <Compile Include="PlayFabNetExtensions\Net\Services\Session\PlayFabSessionService.cs" />
+    <Compile Include="Core\Net\Events\CombatTurnEvent.cs" />
+    <Compile Include="Core\Net\Events\ZoneStartedEvent.cs" />
+    <Compile Include="Core\Net\OperationRequests\PlayerLoadedWorldOpRequest.cs" />
+    <Compile Include="Core\Room\Game\Commands\SendZoneStartedEventsSCMD.cs" />
+    <Compile Include="Core\Room\Game\Controllers\IGameController.cs" />
+    <Compile Include="PlayFabNetExtensions\PlayFabServerJsonParser.cs" />
+    <Compile Include="Tests\Mocking\Combat\Behaviours\PlayerCastFirstAbilityMockBehaviour.cs" />
+    <Compile Include="Tests\Mocking\Net\MockClientConnection.cs" />
+    <Compile Include="Tests\JoinRoomTestCMD.cs" />
+    <Compile Include="Core\Net\Events\LoadWorldEvent.cs" />
+    <Compile Include="Core\Net\Events\PlayerDisconnectedEvent.cs" />
+    <Compile Include="Core\Net\Events\PlayerReadyEvent.cs" />
+    <Compile Include="Core\Net\Events\PlayersJoinedLobbyEvent.cs" />
+    <Compile Include="Core\Net\Events\PlayersJoinedWorldEvent.cs" />
+    <Compile Include="Core\Net\Events\PlayerUnreadyEvent.cs" />
+    <Compile Include="Core\Net\IClientConnection.cs" />
+    <Compile Include="Core\Room\Game\Commands\SendPlayersJoinedWorldEventsSCMD.cs" />
+    <Compile Include="Core\Net\OperationRequests\PlayerReadyOpRequest.cs" />
+    <Compile Include="Core\Net\OperationRequests\PlayerUnreadyOpRequest.cs" />
+    <Compile Include="Tests\Mocking\Net\MockServiceMappings.cs" />
+    <Compile Include="Tests\Mocking\Net\Services\Inventory\MockCatalogService.cs" />
+    <Compile Include="Tests\Mocking\Net\Services\Player\MockPlayerService.cs" />
+    <Compile Include="Core\Combat\Behaviours\AttackFirstEnemyBehaviour.cs" />
+    <Compile Include="Core\Npcs\ServerNpcModel.cs" />
+    <Compile Include="Core\Player\ServerPlayerModel.cs" />
+    <Compile Include="Core\Room\Commands\ValidateSessionCMD.cs" />
+    <Compile Include="Core\InstanceServerApplication.cs" />
+    <Compile Include="Core\Logging\Log.cs" />
+    <Compile Include="Core\Net\ClientPeerConnection.cs" />
+    <Compile Include="Core\Net\OperationRequests\JoinRoomOpRequest.cs" />
+    <Compile Include="Core\Net\OperationResponses\JoinRoomOpResponse.cs" />
+    <Compile Include="Tests\Mocking\Net\Services\Session\MockSessionService.cs" />
+    <Compile Include="Core\Player\PlayerAuthenticationModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Room\Game\GameConstants.cs" />
+    <Compile Include="Core\Room\Game\Commands\SendPlayerDisconnectedEventSCMD.cs" />
+    <Compile Include="Core\Room\Game\Commands\SendLoadWorldEventsCMD.cs" />
+    <Compile Include="Core\Room\Game\Lobby\Commands\SendPlayerJoinedLobbyEventsSCMD.cs" />
+    <Compile Include="Core\Room\Game\Lobby\Commands\SendPlayerUnreadyEventSCMD.cs" />
+    <Compile Include="Core\Room\Game\Lobby\Commands\SendPlayerReadyEventSCMD.cs" />
+    <Compile Include="Core\Room\Game\Lobby\LobbyController.cs" />
+    <Compile Include="Core\Room\Game\Controllers\CoOpInstanceGame\CoOpInstanceGameController.cs" />
+    <Compile Include="Core\Room\JoinRoomController.cs" />
+    <Compile Include="Core\Room\RoomContext.cs" />
+    <Compile Include="PlayFabNetExtensions\Net\Services\Inventory\PlayFabCatalogService.cs" />
+    <Compile Include="Tests\Mocking\Room\WorldBuilders\TestWorldBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{95e26c39-f028-412d-a616-251095b1ab51}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

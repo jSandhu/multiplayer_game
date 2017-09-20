@@ -1,0 +1,8 @@
+Client/Library
+Client/Temp
+Common/obj
+Common/bin
+InstanceServer/obj
+InstanceServer/bin
+/Client/.vs/Client/v15/.suo
+/Client/.vs/Client/v15/sqlite3/storage.ide

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{95E26C39-F028-412D-A616-251095B1AB51}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Combat\Actions\CombatActionModel.cs" />
+    <Compile Include="Combat\Actions\CombatActionsCollectionModel.cs" />
+    <Compile Include="Combat\StatModifiersDeltas.cs" />
+    <Compile Include="Combat\CombatantModel.cs" />
+    <Compile Include="Combat\Commands\BuildCombatantSCMD.cs" />
+    <Compile Include="DIFramework\CommandRetainer.cs" />
+    <Compile Include="DIFramework\DIContainer.cs" />
+    <Compile Include="ExtensionUtils\IJsonSerialization.cs" />
+    <Compile Include="ExtensionUtils\PlayFab\PlayFabItemFactory.cs" />
+    <Compile Include="ExtensionUtils\PlayFab\RawCatalogItems.cs" />
+    <Compile Include="Inventory\Abilities\AbilityDurationData.cs" />
+    <Compile Include="Inventory\Abilities\AbilityDurationDataCollection.cs" />
+    <Compile Include="Inventory\Abilities\AbilityItemConstants.cs" />
+    <Compile Include="Inventory\Abilities\AbilityItemModel.cs" />
+    <Compile Include="Inventory\CatalogModel.cs" />
+    <Compile Include="Inventory\Currency\CurrencyConstants.cs" />
+    <Compile Include="Inventory\DropTableCollection.cs" />
+    <Compile Include="Inventory\DropTableModel.cs" />
+    <Compile Include="Inventory\Equipment\EquipmentItemConstants.cs" />
+    <Compile Include="Inventory\Equipment\EquipmentItemModel.cs" />
+    <Compile Include="Inventory\ItemCollection.cs" />
+    <Compile Include="Inventory\ItemModel.cs" />
+    <Compile Include="Inventory\ItemModelFactory.cs" />
+    <Compile Include="Net\Events\EventCodes.cs" />
+    <Compile Include="Net\OperationRequests\OperationCodes.cs" />
+    <Compile Include="Net\OperationResponses\OperationResponseCodes.cs" />
+    <Compile Include="Npcs\NpcConstants.cs" />
+    <Compile Include="Inventory\Bundle.cs" />
+    <Compile Include="Npcs\NpcModel.cs" />
+    <Compile Include="NumberUtils\RandomGen.cs" />
+    <Compile Include="Player\PlayerModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rarity\RarityConstants.cs" />
+    <Compile Include="Serialization\ISerializableModel.cs" />
+    <Compile Include="World\WorldModel.cs" />
+    <Compile Include="World\Zone\ZoneModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>Copy /Y *.dll ..\..\..\Client\Assets\Common
+Copy /Y *.pdb ..\..\..\Client\Assets\Common
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
